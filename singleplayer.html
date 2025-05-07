@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="css/singleplayer.css" />
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" style="display: none;">
+        <h1>🐍 WELCOME TO SNAKE GAME! 🕹️</h1>
+        <p>Help the cute snake grow by eating food!</p>
+        <button id="welcomePlayButton">Play</button>
+    </div>
+
+    <!-- Game Settings -->
+    <!-- Video background -->
+    <video id="bg-video" autoplay loop playsinline muted>
+        <source src="videos/Gamepagegrid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <div class="controls" style="display: block;">
+        <label for="snakeColor">Snake Color:</label>
+        <input type="color" id="snakeColor" value="#4CAF50" />
+        
+        <p style="margin-top: 20px;">Choose a Background:</p>
+        <div class="background-options">
+            <div class="background-option selected" data-image="grassland.png">
+                <img src="grassland.png" alt="Grassland" />
+            </div>
+            <div class="background-option" data-image="river.png">
+                <img src="river.png" alt="River" />
+            </div>
+            <div class="background-option" data-image="desert.png">
+                <img src="desert.png" alt="Desert" />
+            </div>
+        </div>
+
+        <button id="startGame" style="margin-top: 20px;">Start Game</button>
+    </div>
+
+    <!-- Game Canvas -->
+    <div class="game-container" style="display: none;">
+        <div class="game-controls">
+            <button id="pauseButton">Pause</button>
+            <button id="resumeButton" style="display:none;">Resume</button>
+            <button id="quitButton">Quit</button>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <!-- Score + Try Again -->
+    <div id="scoreBoard" class="score-board">
+        <span>Score: </span><span id="score">0</span>
+        <span> | High Score: </span><span id="highScore">0</span>
+      </div>          
+    <button id="tryAgain">Try Again</button>
+
+    <!-- Scripts -->
+    <script src="js/singleplayer.js"></script>
+</body>
+</html>
+
+<script>
+    window.onload = function () {
+      // Reset any overflow or body changes made by game.html
+      document.body.style.overflow = 'hidden';
+      document.body.style.margin = '0';
+      document.body.style.padding = '0';
+      document.body.style.height = '100%';
+  
+      // Optionally scroll to top
+      window.scrollTo(0, 0);
+    };
+  </script>
+  

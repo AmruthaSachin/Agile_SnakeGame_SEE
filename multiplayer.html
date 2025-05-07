@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Snake Game - Multiplayer</title>
+    <link rel="stylesheet" href="css/multiplayer.css" />
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" style="display: none;">
+        <div class="welcome-screen-content glass-panel">
+            <h1>🐍 SNAKE GAME - MULTIPLAYER! 🐍</h1>
+            <p>Challenge a friend in this exciting two-player snake adventure!</p>
+            <div class="controls-info">
+                <p>Player 1: WASD keys | Player 2: Arrow keys</p>
+            </div>
+            <button id="welcomePlayButton">Play</button>
+        </div>
+    </div>
+
+    <!-- Game Settings -->
+    <!-- Video background -->
+    <video id="bg-video" autoplay loop playsinline muted>
+        <source src="videos/Gamepagegrid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="controls glass-panel" style="display: block;">
+        <h2>Game Settings</h2>
+        <div class="divider"></div>
+        
+        <div class="player-settings">
+            <div class="player1-settings glass-panel">
+                <h2>Player 1 (WASD)</h2>
+                <label for="snakeColor1">Snake Color:</label>
+                <input type="color" id="snakeColor1" value="#4CAF50" />
+            </div>
+            
+            <div class="player2-settings glass-panel">
+                <h2>Player 2 (Arrows)</h2>
+                <label for="snakeColor2">Snake Color:</label>
+                <input type="color" id="snakeColor2" value="#2196F3" />
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        <p>Choose a Background:</p>
+        <div class="background-options">
+            <div class="background-option selected" data-image="grassland.png">
+                <img src="grassland.png" alt="Grassland" />
+            </div>
+            <div class="background-option" data-image="river.png">
+                <img src="river.png" alt="River" />
+            </div>
+            <div class="background-option" data-image="desert.png">
+                <img src="desert.png" alt="Desert" />
+            </div>
+        </div>
+
+        <button id="startGame" style="margin-top: 20px;">Start Game</button>
+    </div>
+
+    <!-- Game Canvas -->
+    <div class="game-container glass-panel" style="display: none;">
+        <div class="game-controls">
+            <button id="pauseButton">Pause</button>
+            <button id="resumeButton" style="display:none;">Resume</button>
+            <button id="quitButton">Quit</button>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <!-- Score + Try Again -->
+    <div id="scoreBoard" class="score-board glass-panel">
+        <div class="player-scores">
+            <div class="player1-score">
+                <h3>Player 1</h3>
+                <span>Score: </span><span id="scorePlayer1">0</span>
+                <span> | High Score: </span><span id="highScorePlayer1">0</span>
+            </div>
+            <div class="player2-score">
+                <h3>Player 2</h3>
+                <span>Score: </span><span id="scorePlayer2">0</span>
+                <span> | High Score: </span><span id="highScorePlayer2">0</span>
+            </div>
+        </div>
+    </div>          
+    <button id="tryAgain">Try Again</button>
+
+    <!-- Scripts -->
+    <script src="js/multiplayer.js"></script>
+</body>
+</html>
